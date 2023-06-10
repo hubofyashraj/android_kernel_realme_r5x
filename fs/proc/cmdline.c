@@ -68,7 +68,7 @@ static void patch_flags(char *cmd)
 	patch_flag_set_val(cmd, "androidboot.vbmeta.device_state=", "locked");
 
 	/* custom flags */
-	patch_flag_remove_flag(cmd, "rcupdate.rcu_normal");
+	patch_flag_remove_flag(cmd, "rcupdate.rcu_expedited");
 	patch_flag_remove_flag(cmd, "rcupdate.rcu_normal_after_boot");
 }
 
