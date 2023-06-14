@@ -69,7 +69,6 @@ static void patch_flags(char *cmd)
 
 	/* custom flags */
 	patch_flag_remove_flag(cmd, "rcupdate.rcu_expedited");
-	patch_flag_remove_flag(cmd, "rcupdate.rcu_normal_after_boot");
 }
 
 static int __init proc_cmdline_init(void)
