@@ -47,7 +47,7 @@
 #undef MODULE_PARAM_PREFIX
 #define MODULE_PARAM_PREFIX "adreno."
 
-static bool nopreempt __read_mostly = true;
+static bool nopreempt __read_mostly = false;
 module_param(nopreempt, bool, 0644);
 MODULE_PARM_DESC(nopreempt, "Disable GPU preemption");
 
