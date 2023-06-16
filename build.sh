@@ -9,7 +9,7 @@ cd ../kitchen
 KITCHEN=$(pwd)
 cd $WORKSPACE
 
-DATE=$(date '+%y%m%d-%H%M')
+DATE=$(date '+%y%m%d')
 DEFCONFIG=straton_defconfig
 KERNEL=Straton-r5x-$DATE.zip
 OUTPUT=$KITCHEN/output
@@ -68,6 +68,7 @@ export_var() {
 pack_kernel() {
 	msg "Packing kernel into zip file"
 	cd $AK3_DIR
+	rm -f ../$KERNEL
 	cp $OUTPUT/arch/$ARCH/boot/Image.gz-dtb \
 		$OUTPUT/arch/$ARCH/boot/dtbo.img .
 	zip -r9 "../$KERNEL" * -x .git* README.md placeholder
