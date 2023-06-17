@@ -138,7 +138,7 @@ unsigned int sysctl_sched_child_runs_first __read_mostly;
  */
 unsigned int sysctl_sched_wakeup_granularity __read_mostly = 6000000ULL;
 
-const_debug unsigned int sysctl_sched_migration_cost = 2000001UL;
+const_debug unsigned int sysctl_sched_migration_cost = 0UL;
 DEFINE_PER_CPU_READ_MOSTLY(int, sched_load_boost);
 
 #ifdef CONFIG_SCHED_WALT
@@ -9059,7 +9059,7 @@ static int task_hot(struct task_struct *p, struct lb_env *env)
 
 	delta = rq_clock_task(env->src_rq) - p->se.exec_start;
 
-	return delta < (s64)sysctl_sched_migration_cost;
+	return delta <= (s64)sysctl_sched_min_granularity;
 }
 
 #ifdef CONFIG_NUMA_BALANCING
