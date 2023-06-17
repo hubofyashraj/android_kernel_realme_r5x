@@ -1,0 +1,5 @@
+config VBSWAP
+	tristate "Fake block device for swap based on vnswap"
+	depends on BLOCK && ZSWAP
+	depends on ZSMALLOC || Z3FOLD || ZBUD
+	default n
