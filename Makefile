@@ -660,7 +660,7 @@ KBUILD_CFLAGS	+= $(call cc-disable-warning, stringop-overread)
 KBUILD_CFLAGS	+= $(call cc-disable-warning, array-compare)
 KBUILD_CFLAGS	+= $(call cc-disable-warning, address)
 
-KBUILD_CFLAGS += -O3 -march=armv8-a+crypto+crc+lse -mtune=generic
+KBUILD_CFLAGS += -O3 -march=armv8-a+crypto+crc -mtune=generic
 
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
