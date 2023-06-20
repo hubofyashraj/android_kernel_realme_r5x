@@ -791,8 +791,6 @@ extern pgd_t tramp_pg_dir[PTRS_PER_PGD];
 
 extern int kern_addr_valid(unsigned long addr);
 
-#define arch_has_hw_pte_young	cpu_has_hw_af
-
 #include <asm-generic/pgtable.h>
 
 void pgd_cache_init(void);
@@ -822,13 +820,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
  * page after fork() + CoW for pfn mappings. We don't always have a
  * hardware-managed access flag on arm64.
  */
-static inline bool arch_faults_on_old_pte(void)
-{
-	WARN_ON(preemptible());
-
-	return !cpu_has_hw_af();
-}
-#define arch_faults_on_old_pte arch_faults_on_old_pte
+#define arch_has_hw_pte_young	cpu_has_hw_af
 
 #endif /* !__ASSEMBLY__ */
 
